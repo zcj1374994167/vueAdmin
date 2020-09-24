@@ -28,6 +28,7 @@ router.beforeEach(async(to, from, next) => {
     } else {
       // determine whether the user has obtained his permission roles through getInfo
       const hasRoles = store.getters.roles && store.getters.roles.length > 0
+      // 第一次获取store.getters.roles为[],取不到值，但是在if里面为true，所以要&&后面一串再判断
       if (hasRoles) {
         next()
       } else {
